@@ -19,6 +19,8 @@ Este projeto simula o ecossistema de uma Fintech moderna integrada a um sistema 
 5. (Próximo passo) O Flutter oferece uma interface amigável para o usuário.
 6. O Java realiza auditoria de integridade dos dados processados.
 7. O saldo atualizado é refletido no banco de dados PostgreSQL.
+8. O cliente consulta seu saldo via API.
+9. O Flutter exibe o saldo atualizado ao usuário.
 
 ## 📊 Diagrama de Fluxo do Sistema
 
@@ -54,13 +56,12 @@ Este projeto foi desenvolvido utilizando uma metodologia de parceria com Intelig
 - `data-engine/`: Código Python para geração e exportação de dados.
 - `core-bancario/`: Código COBOL para processamento batch.
 - `api/`: (Em breve) Código Java Spring Boot para exposição da API.
-- 'app/': (Em breve) Código Flutter para o aplicativo móvel.
 - `frontend/`: (Em breve) Código Flutter para a interface do usuário.
 - `scripts/`: Scripts auxiliares para configuração e execução do ambiente.
-- `docs/`: Documentação adicional e diagramas do sistema.
-- `tests/`: Testes automatizados para validação do sistema.
+- `docs/`: (Em breve)Documentação adicional e diagramas do sistema.
+- `tests/`: (Em breve)Testes automatizados para validação do sistema.
 - `chaos/`: (Em breve) Scripts e ferramentas para Chaos Engineering.
-- audit/`: Código Java para auditoria de integridade dos dados.
+- `audit/`: (Em breve)Código Java para auditoria de integridade dos dados.
 - `README.md`: Este arquivo de documentação.
 
 
