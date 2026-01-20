@@ -18,4 +18,33 @@ Este projeto simula o ecossistema de uma Fintech moderna integrada a um sistema 
 4. (Próximo passo) O Java expõe os resultados para o cliente final.
 5. (Próximo passo) O Flutter oferece uma interface amigável para o usuário.
 
+## 🤖 Desenvolvimento Guiado por IA (AI-Assisted Engineering)
+
+Este projeto foi desenvolvido utilizando uma metodologia de parceria com Inteligência Artificial (Gemini), atuando em diferentes papéis no ciclo de vida do software:
+
+- **Arquitetura de Sistemas:** Definição da comunicação entre o legado (COBOL) e o moderno (Python/PostgreSQL).
+- **Simulação de Ambiente Real:** A IA atua como **Senior Tech Lead**, gerando tickets de tarefas e desafios de implementação.
+- **Chaos Engineering (Próxima Fase):** A IA atuará como "Chefe do Caos", injetando dados sujos, inconsistências de transação e falhas simuladas para testar a resiliência das validações em Java e Python.
+- **Code Review:** Validação de boas práticas de segurança e performance em SQL e COBOL.
+
 ## 📂 Estrutura do Projeto
+
+- `data-engine/`: Código Python para geração e exportação de dados.
+- `core-bancario/`: Código COBOL para processamento batch.
+- `api/`: (Em breve) Código Java Spring Boot para exposição da API.
+- `frontend/`: (Em breve) Código Flutter para a interface do usuário.
+
+
+## 🚀 Próximos Passos
+
+- Implementar a API em Java Spring Boot.
+- Desenvolver o frontend em Flutter.
+- Adicionar testes automatizados para garantir a integridade dos dados.
+- Implementar Chaos Engineering para validar a resiliência do sistema.
+- Otimizar performance e segurança do banco de dados.
+
+### 🛡️ Estratégias de Resiliência e Segurança
+
+- **Checksum Audit:** Implementação de uma camada de auditoria em Java para validar a integridade dos dados processados pelo COBOL.
+- **Chaos Engineering:** Simulação de corrupção de arquivos flat para testar os mecanismos de rollback do sistema.
+- **Double-Entry Bookkeeping:** Garantia de que nenhuma transação seja perdida entre as transações de arquivos e o banco de dados SQL.
