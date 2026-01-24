@@ -22,7 +22,7 @@ O sistema opera em um ciclo contínuo de geração, processamento e auditoria:
 
 ## 📊 Diagrama de Solução
 
-```mermaid
+
 graph TD
     A["Python Data Engine"] -->|"1. INSERT (Pendentes)"| B("PostgreSQL")
     A -->|"2. Exporta Arquivo"| C["movimentacoes.dat"]
