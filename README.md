@@ -24,13 +24,14 @@ O sistema opera em um ciclo contínuo de geração, processamento e auditoria:
 
 ```mermaid
 graph TD
-    A[Python Data Engine] -->|1. INSERT (Pendentes)| B(PostgreSQL)
-    A -->|2. Exporta Arquivo| C[movimentacoes.dat]
-    C -->|3. Processamento Batch| D[COBOL Core]
-    D -->|4. Arquivo Retorno| E[processados.dat]
-    E -->|5. Leitura e Auditoria| F[Java Spring API]
-    F -->|6. Validação e Update| B
-    G[App Flutter] -.->|Future: Consulta Saldo| F
+    A["Python Data Engine"] -->|"1. INSERT (Pendentes)"| B("PostgreSQL")
+    A -->|"2. Exporta Arquivo"| C["movimentacoes.dat"]
+    C -->|"3. Processamento Batch"| D["COBOL Core"]
+    D -->|"4. Arquivo Retorno"| E["processados.dat"]
+    E -->|"5. Leitura e Auditoria"| F["Java Spring API"]
+    F -->|"6. Validação e Update"| B
+    G["App Flutter"] -.->|"Future: Consulta Saldo"| F
+
 
     /TechBank
 ├── api/                # API Java Spring Boot (Controllers, Services, Repositories)
