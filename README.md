@@ -22,7 +22,6 @@ O sistema opera em um ciclo contínuo de geração, processamento e auditoria:
 
 ## 📊 Diagrama de Solução
 
-
 ```mermaid
 graph TD
     A["Python Data Engine"] -->|"1. INSERT (Pendentes)"| B[("PostgreSQL")]
@@ -31,19 +30,48 @@ graph TD
     D -->|"4. Arquivo Retorno"| E["processados.dat"]
     E -->|"5. Leitura e Auditoria"| F["Java Spring API"]
     F -->|"6. Validação e Update"| B
-    G["App Flutter"] -.->|"Future: Consulta Saldo"| F
+    G["App Flutter"] -.->|"Future: Consulta Saldo"| F'''
 
+    ## 🤖 Gemini como CTO & AI-Assisted Engineering
 
-## 🤖 Desenvolvimento Guiado por IA (AI-Assisted Engineering)
+Este projeto vai além do uso de IA para gerar código. Foi utilizada uma arquitetura de **Engenharia de Prompt** para simular um ambiente corporativo real, onde o Gemini atua com a persona de um **Senior Bank Architect**.
 
-Este projeto adota uma metodologia de **Engenharia Assistida por IA**, onde o Gemini atua como um par técnico estratégico em dois papéis fundamentais:
+### 🧠 O Papel da IA no Projeto
 
-- **Senior Tech Lead & Product Owner:** A IA define a arquitetura e simula demandas de negócio reais, como **alterações regulatórias do Banco Central** (ex: novas regras de taxação do PIX ou mudança no cálculo de crédito), gerando tickets de trabalho para testar a adaptabilidade do código.
-- **Resilience Testing (Chaos Engineering):** Atuação como "Chefe do Caos", injetando falhas intencionais (ex: IDs inválidos no arquivo COBOL ou corrupção de dados) para validar se a auditoria em Java consegue barrar fraudes e inconsistências.
+- **CTO & Tech Lead:** Definição de arquitetura híbrida (Legacy + Cloud) e Code Review rigoroso.
+- **Product Owner:** Simulação de demandas de negócio voláteis (ex: "O Banco Central mudou a regra do PIX às 02h da manhã").
+- **Chaos Manager:** Injeção de falhas propositais nos arquivos de dados para testar a resiliência da auditoria Java.
 
+### 📝 O Prompt de Comando (System Role)
+
+Para replicar a experiência de desenvolvimento deste projeto, foi utilizado o seguinte prompt mestre para configurar a IA:
+
+> "Atue como um Senior Tech Lead especializado em sistemas bancários. Sua missão é me guiar na construção de um banco digital híbrido (TechBank). Você deve ser exigente com padrões de arquitetura (Clean Code), segurança e resiliência. Você não deve apenas me dar o código pronto, mas explicar o 'porquê' das decisões arquiteturais. Periodicamente, atue como o 'Chefe do Caos', sugerindo cenários de falha crítica (como corrupção de arquivos COBOL ou queda do banco de dados) para que eu precise implementar soluções de contorno."
+
+## 📂 Estrutura do Repositório
+
+```text
 /TechBank
 ├── api/                # API Java Spring Boot (Controllers, Services, Repositories)
 ├── core-bancario/      # Fontes COBOL (.cob) e binários compilados
 ├── data-engine/        # Scripts Python para geração de massa e ETL
 ├── database/           # Scripts SQL (DDL) para criação e alteração de tabelas
 └── README.md           # Documentação do projeto
+
+```
+
+## 🚀 Roadmap e Próximos Passos
+
+Acompanhe a evolução do projeto no GitHub Projects.
+
+[x] Configuração do Ambiente Híbrido (Docker/Postgres).
+
+[x] Pipeline de Dados (Python -> COBOL).
+
+[x] API de Auditoria em Java Spring Boot.
+
+[ ] Implementação de Juros Compostos e Tabela Price no COBOL.
+
+[ ] Frontend em Flutter (Dashboard do Cliente).
+
+[ ] Dashboards de Análise de Dados (Jupyter Notebooks).
