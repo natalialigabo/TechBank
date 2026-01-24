@@ -1,74 +1,41 @@
 # TechBank Hybrid System 🚀
 
-Este projeto simula o ecossistema de uma Fintech moderna integrada a um sistema bancário legado.
+Este projeto simula o ecossistema de uma Fintech moderna integrada a um sistema bancário legado, demonstrando a interoperabilidade entre tecnologias de diferentes eras (COBOL e Java Spring Boot).
 
 ## 🛠 Stack Tecnológica
 
-- **Banco de Dados:** PostgreSQL (Relacional)
-- **Data Engine:** Python (Faker, Psycopg2)
-- **Core Bancário:** COBOL (Processamento Batch)
-- **API:** Java Spring Boot (Em breve)
-- **Frontend:** Flutter (Em breve)
+- **Core Bancário:** COBOL (GnuCOBOL) - Processamento Batch e Regras de Negócio Legadas.
+- **API & Auditoria:** Java 17 + Spring Boot 3 - Camada de conciliação e exposição de dados.
+- **Data Engine:** Python (Faker, Psycopg2) - Geração de massa de dados e simulação de transações.
+- **Banco de Dados:** PostgreSQL - Persistência relacional.
+- **Frontend:** Flutter (Em desenvolvimento) - Interface Mobile para o cliente final.
 
-## ⚙️ Como funciona?
+## ⚙️ Arquitetura e Fluxo de Dados
 
-1. O Python gera dados fictícios no Postgres.
-2. O Python exporta transações PENDENTES para um arquivo flat (.dat).
-3. O COBOL processa as taxas e gera um arquivo de retorno.
-4. (Próximo passo) O Java expõe os resultados para o cliente final.
-5. (Próximo passo) O Flutter oferece uma interface amigável para o usuário.
-6. O Java realiza auditoria de integridade dos dados processados.
-7. O saldo atualizado é refletido no banco de dados PostgreSQL.
-8. O cliente consulta seu saldo via API.
-9. O Flutter exibe o saldo atualizado ao usuário.
+O sistema opera em um ciclo contínuo de geração, processamento e auditoria:
 
-## 📊 Diagrama de Fluxo do Sistema
+1.  **Ingestão:** O Python gera transações financeiras simuladas (Empréstimos, CDB, Compras) e as insere no PostgreSQL.
+2.  **Exportação Legacy:** Um script extrai transações `PENDENTES` para um arquivo flat (`.dat`) compatível com mainframes.
+3.  **Processamento Batch:** O Core em COBOL lê o arquivo, aplica regras de juros/tarifas e gera um arquivo de retorno.
+4.  **Auditoria Automatizada:** A API Java lê o arquivo processado pelo COBOL, cruza com os dados do banco e valida a integridade (Anti-Fraud Check).
+5.  **Conciliação:** Se validado, o Java atualiza os saldos no PostgreSQL.
+
+## 📊 Diagrama de Solução
 
 ```mermaid
 graph TD
-    A[Python Faker] -->|Gera Dados| B(PostgreSQL)
-    B -->|Exporta PENDENTES| C[Arquivo .dat]
-    C -->|Processamento Batch| D[COBOL Core]
-    D -->|Arquivo Retorno| E[Auditoria Java]
-    E -->|Update Saldo| B
-    F[App Flutter] -->|Consulta API| G[API Java Spring]
-    G -->|Lê Dados| B
-```
+    A[Python Data Engine] -->|1. INSERT (Pendentes)| B(PostgreSQL)
+    A -->|2. Exporta Arquivo| C[movimentacoes.dat]
+    C -->|3. Processamento Batch| D[COBOL Core]
+    D -->|4. Arquivo Retorno| E[processados.dat]
+    E -->|5. Leitura e Auditoria| F[Java Spring API]
+    F -->|6. Validação e Update| B
+    G[App Flutter] -.->|Future: Consulta Saldo| F
 
-## 🤖 Desenvolvimento Guiado por IA (AI-Assisted Engineering)
+    /TechBank
+├── api/                # API Java Spring Boot (Controllers, Services, Repositories)
+├── core-bancario/      # Fontes COBOL (.cob) e binários compilados
+├── data-engine/        # Scripts Python para geração de massa e ETL
+├── database/           # Scripts SQL (DDL) para criação e alteração de tabelas
+└── README.md           # Documentação do projeto
 
-Este projeto foi desenvolvido utilizando uma metodologia de parceria com Inteligência Artificial (Gemini), atuando em diferentes papéis no ciclo de vida do software:
-
-- **Arquitetura de Sistemas:** Definição da comunicação entre o legado (COBOL) e o moderno (Python/PostgreSQL).
-- **Simulação de Ambiente Real:** A IA atua como **Senior Tech Lead**, gerando tickets de tarefas e desafios de implementação.
-- **Chaos Engineering (Próxima Fase):** A IA atuará como "Chefe do Caos", injetando dados sujos, inconsistências de transação e falhas simuladas para testar a resiliência das validações em Java e Python.
-- **Code Review:** Validação de boas práticas de segurança e performance em SQL e COBOL.
-
-### 🛡️ Estratégias de Resiliência e Segurança
-
-- **Checksum Audit:** Implementação de uma camada de auditoria em Java para validar a integridade dos dados processados pelo COBOL.
-- **Chaos Engineering:** Simulação de corrupção de arquivos flat para testar os mecanismos de rollback do sistema.
-- **Double-Entry Bookkeeping:** Garantia de que nenhuma transação seja perdida entre as transações de arquivos e o banco de dados SQL.
-
-
-## 📂 Estrutura do Projeto
-
-- `data-engine/`: Código Python para geração e exportação de dados.
-- `core-bancario/`: Código COBOL para processamento batch.
-- `api/`: (Em breve) Código Java Spring Boot para exposição da API.
-- `frontend/`: (Em breve) Código Flutter para a interface do usuário.
-- `scripts/`: Scripts auxiliares para configuração e execução do ambiente.
-- `docs/`: (Em breve)Documentação adicional e diagramas do sistema.
-- `tests/`: (Em breve)Testes automatizados para validação do sistema.
-- `chaos/`: (Em breve) Scripts e ferramentas para Chaos Engineering.
-- `audit/`: (Em breve)Código Java para auditoria de integridade dos dados.
-- `README.md`: Este arquivo de documentação.
-
-
-## 🚀 Próximos Passos
-
-- Implementar a API em Java Spring Boot.
-- Desenvolver o frontend em Flutter.
-- Adicionar testes automatizados para garantir a integridade dos dados.
-- Implementar Chaos Engineering para validar a resiliência do sistema.
-- Otimizar performance e segurança do banco de dados.
