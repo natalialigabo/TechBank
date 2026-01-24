@@ -78,3 +78,6 @@ Acompanhe a evolução do projeto no GitHub Projects.
 [ ] Frontend em Flutter (Dashboard do Cliente).
 
 [ ] Dashboards de Análise de Dados (Jupyter Notebooks).
+
+
+Projeto desenvolvido por Natália Ligabo.
