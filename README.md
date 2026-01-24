@@ -31,10 +31,11 @@ graph TD
     E -->|"5. Leitura e Auditoria"| F["Java Spring API"]
     F -->|"6. Validação e Update"| B
     G["App Flutter"] -.->|"Future: Consulta Saldo"| F
-    
-    ```
 
-    ## 🤖 Gemini como CTO & AI-Assisted Engineering
+
+```         
+
+ ## 🤖 Gemini como CTO & AI-Assisted Engineering
 
 Este projeto vai além do uso de IA para gerar código. Foi utilizada uma arquitetura de **Engenharia de Prompt** para simular um ambiente corporativo real, onde o Gemini atua com a persona de um **Senior Bank Architect**.
 
