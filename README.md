@@ -33,3 +33,17 @@ graph TD
     F -->|"6. Validação e Update"| B
     G["App Flutter"] -.->|"Future: Consulta Saldo"| F
 
+
+## 🤖 Desenvolvimento Guiado por IA (AI-Assisted Engineering)
+
+Este projeto adota uma metodologia de **Engenharia Assistida por IA**, onde o Gemini atua como um par técnico estratégico em dois papéis fundamentais:
+
+- **Senior Tech Lead & Product Owner:** A IA define a arquitetura e simula demandas de negócio reais, como **alterações regulatórias do Banco Central** (ex: novas regras de taxação do PIX ou mudança no cálculo de crédito), gerando tickets de trabalho para testar a adaptabilidade do código.
+- **Resilience Testing (Chaos Engineering):** Atuação como "Chefe do Caos", injetando falhas intencionais (ex: IDs inválidos no arquivo COBOL ou corrupção de dados) para validar se a auditoria em Java consegue barrar fraudes e inconsistências.
+
+/TechBank
+├── api/                # API Java Spring Boot (Controllers, Services, Repositories)
+├── core-bancario/      # Fontes COBOL (.cob) e binários compilados
+├── data-engine/        # Scripts Python para geração de massa e ETL
+├── database/           # Scripts SQL (DDL) para criação e alteração de tabelas
+└── README.md           # Documentação do projeto
