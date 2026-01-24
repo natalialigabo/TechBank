@@ -31,6 +31,7 @@ graph TD
     E -->|"5. Leitura e Auditoria"| F["Java Spring API"]
     F -->|"6. Validação e Update"| B
     G["App Flutter"] -.->|"Future: Consulta Saldo"| F
+    
     ```
 
     ## 🤖 Gemini como CTO & AI-Assisted Engineering
